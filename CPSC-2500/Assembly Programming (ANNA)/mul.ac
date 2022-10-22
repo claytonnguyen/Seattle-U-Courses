@@ -1,0 +1,10 @@
+in r1
+in r2
+lli r3 0
+add r3 r3 r2
+lli r4 0
+loop: add r4 r4 r1
+addi r3 r3 -1
+bgz r3 &loop
+out r4
+.halt

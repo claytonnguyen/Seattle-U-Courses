@@ -1,0 +1,58 @@
+#Code section
+
+#Get the starting address of the LIST array in r1
+lli r1 &LIST
+lui r1 &LIST
+
+#lli r6 4
+
+lli r4 0 #Initializing the counter r4 to zero for counting the number of values entered by the user
+
+#Accept user input in a loop until a negative number is entered
+USER_INPUT: in r2
+sub r3 r0 r2 #r3 = 0 - r2, if r2 contains negative number, r3 will be positive
+bgz r3 &PRINT #If r3 is > 0, a negative number was entered, so stop accepting input and jump to the PRINT label
+
+#Otherwise, if the number is positive, store it in the array
+sw r2 r1 0
+addi r1 r1 1#Incrementing the address in r1 by one so that it points to the next available location in the array
+addi r4 r4 1#Every time a number is stored in the array, we increment the counter by one
+
+bez r0 &USER_INPUT #Loop back and accept another number from the user
+
+
+PRINT: bez r4 &STOP 
+	lli r1 &LIST #Again get the starting address of the LIST array in r1
+	lui r1 &LIST
+
+	sub r3 r4 r0
+	lw r5 r1 0
+	add r7 r5 r0
+	
+PARSE_ARRAY: lw r5 r1 0#load the contents of the memory location pointed to by r1
+	sub r2 r7 r5
+	bgz r2 &SKIP
+	add r7 r5 r0 #max value is updated
+	add r6 r1 r0
+
+SKIP: addi r1 r1 1#Increment the address in r1 to point to the next array element
+	addi r3 r3 -1 #decrement the counter by 1; when this reaches zero, we have reached the end of the array
+	bgz r3 &PARSE_ARRAY #Loop back to label PARSE_ARRAY if more elements in the array
+	out r7
+	sw r0 r6 0
+	lli r6 &COUNT
+	lui r6 &COUNT
+	lw r5 r6 0
+	addi r5 r5 -1
+	sw r5 r6 0
+	bez r5 &END
+	bgz r5 &PRINT
+
+STOP: out r4
+
+END: .halt
+
+
+#Data section
+COUNT: .fill 4
+LIST: .fill 0 #The beginning of the growing array LIST

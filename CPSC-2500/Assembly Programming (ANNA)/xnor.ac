@@ -1,0 +1,17 @@
+in r1
+in r2
+lli r6 -1
+sub r3 r0 r1
+sub r4 r0 r2
+bgz r3 &end
+bgz r4 &end
+bez r3 &end
+bez r4 &end
+or r3 r1 r2
+not r3 r3
+and r4 r1 r2
+or r5 r3 r4
+out r5
+bez r0 &stop
+end:out r6
+stop:.halt
