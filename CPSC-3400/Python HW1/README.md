@@ -1,3 +1,5 @@
+# Word Ladder Programming Assignment in Python
+
 A Word Ladder program is similar to a "6 degrees of separation" or Oracle of (Kevin) Bacon game, but using words rather than people or actors. Simply, from a given starting word, find the shortest "ladder" of single letter changes which leads to some final word, where each intermediate state is also a word.
 
 For example:
