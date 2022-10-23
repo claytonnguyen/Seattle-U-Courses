@@ -1,6 +1,6 @@
 # Seattle University CS Courses I have taken and relevant CS assignments
 
-Course Number - Description
+### Course Number - Description
 
 ### CPSC 1420 Programming and Prob Solving 1 - 
   Introduction to programming and computing fundamentals, with emphasis on problem solving, design and style. Prior programming experience is not required. This course introduces fundamental programming concepts such as functional decomposition, stepwise refinement, control structures, loops, functions, primitive and aggregate data types
