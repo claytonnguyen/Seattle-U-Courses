@@ -1,0 +1,933 @@
+<!-- db.html
+     Use a form to collect a query against the sailor database.
+     Call the PHP script, db.php to perform
+     the given query and display the results
+    -->
+<html>
+<head><title> Access to the Exchange database </title>
+</head>
+<body style="background: #eae2b7;">
+<div style="text-align: center;
+	padding: 50px 0px;"> 
+<div style="
+	border-radius: 10px;
+  	background-color: #d4a373;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	font-size: 16px;
+	font-family: monospace;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+<p style="
+  color: #432818;
+  padding: 0px 32px 0px;
+  text-align: center;
+  font-size: 33px;
+font-family: monospace; ">WELCOME TO THE CRYPTO EXCHANGE DATABASE</p>
+</div>
+</div>
+
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+
+	<br />
+	<div style="
+	display: flex;
+	margin: 25px 0px;">
+	<div style="
+	border-radius: 10px;
+  	background-color: #d4a373;
+	margin-top: 10px;
+	margin-left: 30px;
+  	padding: 10px 20px;
+  	text-align: left;
+  	text-decoration: none;
+  	display: inline-block flex;
+	width: 45%;
+	height: 100%;
+	overflow: auto;
+    	margin: auto;
+  	font-size: 16px;
+	font-family: monospace;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+	
+	<!-- QUERY RETRIEVE DATA SECTION -->
+	<p3 style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">List some data stored in tables: </p3> <br />
+	<button name="query" type="submit" value="select * from Exchange" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">Select Exchange table</button> <br />
+	<button name="query" type="submit" value="select * from ExchangeAccount" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">Select ExchangeAccount table</button> <br />
+	<button name="query" type="submit" value="select * from BankAccount" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">Select BankAccount table</button> <br />
+	<button name="query" type="submit" value="select * from Token" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">Select Token table</button> <br />
+	<button name="query" type="submit" value="select * from BuyCrypto" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">Select BuyCrypto table</button> <br />
+	<button name="query" type="submit" value="select * from SellCrypto" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">Select SellCrypto table</button> <br />
+	<br />
+	</div>
+	<br />
+
+	<div style="
+	border-radius: 10px;
+  	background-color: #d4a373;
+	margin-top: 10px;
+	margin-left: 30px;
+  	padding: 10px 20px;
+  	text-align: left;
+  	text-decoration: none;
+  	display: inline-block flex;
+	width: 45%;
+	height: 100%;
+	overflow: auto;
+    	margin: auto;
+  	font-size: 16px;
+	font-family: monospace;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+
+	<!-- JOINING SECTION -->
+	<p3 style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">Execute join queries and display the results: </p3> <br />
+	<button name="query" type="submit" value="select * from Exchange E, BuyCrypto B where E.exchangeTokenAddress = B.userTokenAddress" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">Join Exchange and BuyCrypto Tables</button> <br />
+	<button name="query" type="submit" value="select * from Exchange E, SellCrypto S where E.exchangeTokenAddress = S.userTokenAddress" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">Join Exchange and SellCrypto Tables</button> <br />
+	<button name="query" type="submit" value="select * from ExchangeAccount E, BuyCrypto B where E.ssn = B.ownerSSN" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">Join ExchangeAccount and BuyCrypto Tables</button> <br />
+	<button name="query" type="submit" value="select * from ExchangeAccount E, SellCrypto S where E.ssn = S.ownerSSN" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">Join ExchangeAccount and SellCrypto Tables</button> <br />
+	<button name="query" type="submit" value="select * from Token T, BuyCrypto B where T.userTokenAddress = B.userTokenAddress" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">Join Token and BuyCrypto Tables</button> <br />
+	<button name="query" type="submit" value="select * from Token T, SellCrypto S where T.userTokenAddress = S.userTokenAddress" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">Join Token and SellCrypto Tables</button> <br />
+	<button name="query" type="submit" value="select * from BankAccount B, ExchangeAccount E where B.accountNumber = E.accountNumber and B.routingNumber = E.routingNumber" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">Join BankAccount and ExchangeAccount Tables</button> <br />
+	<br />
+	</div>
+	</div>
+	<br />
+
+	
+	<div style="
+	display: flex;
+	margin: 25px 0px;">
+	<div style="
+	border-radius: 10px;
+  	background-color: #d4a373;
+	margin-top: 10px;
+	margin-left: 30px;
+  	padding: 10px 20px;
+  	text-align: left;
+  	text-decoration: none;
+  	display: inline-block flex;
+	width: 45%;
+	overflow: auto;
+    	margin: auto;
+  	font-size: 16px;
+	font-family: monospace;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+
+	<!-- BANKACCOUNT SECTION -->
+	<p3 style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">BANK ACCOUNT TABLE: </p3>
+	<br />
+	<p style="color: #432818; padding: 5px 32px; text-align: center; display: inline-block; font-size: 15px; font-family: monospace;">BankAccount:</p>
+	<p style="color: #432818; padding: 5px 32px; text-align: center; display: inline-block; font-size: 15px; font-family: monospace;">accountNumber, routingNumber</p> <br />
+	<p style="color: red; padding: 5px 32px; text-align: center; display: inline-block; font-size: 15px; font-family: monospace;">Pro Tip: When typing in string based values, wrap the string in single quotes: 'xxx' </p>
+	
+
+	<!-- AGGREGATING BANKACCOUNT -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">BankAccount Aggregate</p> <br />
+  	<input type="radio" id="BankAccount" name="formTable" value="BankAccount" style="width: 50px;">
+  	<label for="BankAccount">BankAccount</label><br>
+	<br />
+	<label for="formMethod">Choose an Aggregate function:</label>
+	<br />
+	<select name="formMethod" id="formMethod" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="Count">COUNT</option>
+  		<option value="Sum">SUM</option>
+		<option value="Average">AVERAGE</option>
+		<option value="Min">MIN</option>
+  		<option value="Max">MAX</option>
+	</select>
+	<br />
+	<label for="formAttribute1">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute1" id="formAttribute1" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="accountNumber">Account Number (Integer)</option>
+  		<option value="routingNumber">Routing Number (Integer)</option>
+	</select>
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+
+	<!-- INSERTING FOR BANKACCOUNT -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">BankAccount Insert</p> <br />
+  	<input type="radio" id="BankAccount" name="formTable" value="BankAccount" style="width: 50px;">
+  	<label for="BankAccount">BankAccount</label><br>
+	<br />
+	<input type="radio" id="Insert" name="formMethod" value="Insert" style="width: 50px;">
+  	<label for="Insert">Insert</label><br />
+	<br />
+	<textarea  placeholder="Account Number (Number)" rows = "5"  cols = "20" name = "formData1" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Routing Number (Number)" rows = "5"  cols = "20" name = "formData2" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+	<br />
+
+	<!-- UPDATING BANKACCOUNT -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">BankAccount Update</p> <br />
+  	<input type="radio" id="BankAccount" name="formTable" value="BankAccount" style="width: 50px;">
+  	<label for="BankAccount">BankAccount</label><br>
+	<br />
+	<input type="radio" id="Update" name="formMethod" value="Update" style="width: 50px;">
+  	<label for="Update">Update</label><br />
+	<br />
+	<label for="formAttribute1">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute1" id="formAttribute1" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="accountNumber">Account Number (Integer)</option>
+  		<option value="routingNumber">Routing Number (Integer)</option>
+	</select>
+	<br />
+	<textarea  placeholder="Change the Data to this" rows = "5"  cols = "40" name = "formData1" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<label for="formAttribute2">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute2" id="formAttribute2" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="accountNumber">Account Number (Integer)</option>
+  		<option value="routingNumber">Routing Number (Integer)</option>
+	</select>
+	<br />
+	<textarea  placeholder="Data to be changed" rows = "5"  cols = "40" name = "formData2" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+
+	<!-- DELETING BANKACCOUNT -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">BankAccount Delete</p> <br />
+  	<input type="radio" id="BankAccount" name="formTable" value="BankAccount" style="width: 50px;">
+  	<label for="BankAccount">BankAccount</label><br>
+	<br />
+	<input type="radio" id="Delete" name="formMethod" value="Delete" style="width: 50px;">
+  	<label for="Delete">Delete</label><br />
+	<br />
+	<label for="formAttribute1">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute1" id="formAttribute1" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="accountNumber">Account Number (Integer)</option>
+  		<option value="routingNumber">Routing Number (Integer)</option>
+	</select>
+	<br />
+	<textarea  placeholder="Data to be found to be deleted" rows = "5"  cols = "40" name = "formData1" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+	</div>
+
+
+	<div style="
+	border-radius: 10px;
+  	background-color: #d4a373;
+	margin-top: 10px;
+	margin-left: 30px;
+  	padding: 10px 20px;
+  	text-align: left;
+  	text-decoration: none;
+  	display: inline-block flex;
+	width: 45%;
+	overflow: auto;
+    	margin: auto;
+  	font-size: 16px;
+	font-family: monospace;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+
+	<!-- EXCHANGEACCOUNT SECTION -->
+	<p3 style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">EXHANGE ACCOUNT TABLE: </p3>
+	<br />
+	<p style="color: #432818; padding: 5px 32px; text-align: center; display: inline-block; font-size: 15px; font-family: monospace;">ExchangeAccount:</p>
+	<p style="color: #432818; padding: 5px 32px; text-align: center; display: inline-block; font-size: 15px; font-family: monospace;">ssn, fname, lname, phoneNumber, email, streetNumber, streetName, city, dollarBalance, accountNumber, routingNumber</p> <br />
+	<p style="color: red; padding: 5px 32px; text-align: center; display: inline-block; font-size: 15px; font-family: monospace;">Pro Tip: When typing in string based values, wrap the string in single quotes: 'xxx' </p>
+
+	<!-- AGGREGATING EXCHANGEACCOUNT -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">ExchangeAccount Aggregate</p> <br />
+  	<input type="radio" id="ExchangeAccount" name="formTable" value="ExchangeAccount" style="width: 50px;">
+  	<label for="ExchangeAccount">ExchangeAccount</label><br>
+	<br />
+	<label for="formMethod">Choose an Aggregate function:</label>
+	<br />
+	<select name="formMethod" id="formMethod" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="Count">COUNT</option>
+  		<option value="Sum">SUM</option>
+		<option value="Average">AVERAGE</option>
+		<option value="Min">MIN</option>
+  		<option value="Max">MAX</option>
+	</select>
+	<br />
+	<label for="formAttribute1">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute1" id="formAttribute1" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="ssn">Social Security Number (String)</option>
+  		<option value="fname">First Name (String)</option>
+  		<option value="lname">Last Name (String)</option>
+  		<option value="phoneNumber">Phone Number (String)</option>
+		<option value="email">Email (String)</option>
+  		<option value="streetNumber">Street Number (Integer)</option>
+  		<option value="streetName">Street Name (String)</option>
+  		<option value="city">City (String)</option>
+		<option value="dollarBalance">Balance in Dollars (Integer)</option>
+  		<option value="accountNumber">Account Number (Integer)</option>
+  		<option value="routingNumber">Routing Number (Integer)</option>
+	</select>
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+	
+	<!-- INSERTING FOR EXCHANGEACCOUNT -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">ExchangeAccount Insert</p> <br />
+  	<input type="radio" id="ExchangeAccount" name="formTable" value="Exchange" style="width: 50px;">
+  	<label for="ExchangeAccount">ExchangeAccount</label><br>
+	<br />
+	<input type="radio" id="Insert" name="formMethod" value="Insert" style="width: 50px;">
+  	<label for="Insert">Insert</label><br />
+	<br />
+	<textarea  placeholder="Social Security Number (String)" rows = "5"  cols = "20" name = "formData1" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="First Name (String)" rows = "5"  cols = "20" name = "formData2" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Last Name (String)" rows = "5"  cols = "20" name = "formData3" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Phone Number (String)" rows = "5"  cols = "20" name = "formData4" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Email (String)" rows = "5"  cols = "20" name = "formData5" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Street Number (Integer)" rows = "5"  cols = "20" name = "formData6" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Street Name (String)" rows = "5"  cols = "20" name = "formData7" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="City (String)" rows = "5"  cols = "20" name = "formData8" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Dollar Balance (Integer)" rows = "5"  cols = "20" name = "formData9" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Account Number (Integer)" rows = "5"  cols = "20" name = "formData10" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Routing Number (Integer)" rows = "5"  cols = "20" name = "formData11" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+
+	<!-- UPDATING EXCHANGEACCOUNT -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">ExchangeAccount Update</p> <br />
+  	<input type="radio" id="ExchangeAccount" name="formTable" value="ExchangeAccount" style="width: 50px;">
+  	<label for="ExchangeAccount">ExchangeAccount</label><br>
+	<br />
+	<input type="radio" id="Update" name="formMethod" value="Update" style="width: 50px;">
+  	<label for="Update">Update</label><br />
+	<br />
+	<label for="formAttribute1">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute1" id="formAttribute1" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="ssn">Social Security Number (String)</option>
+  		<option value="fname">First Name (String)</option>
+  		<option value="lname">Last Name (String)</option>
+  		<option value="phoneNumber">Phone Number (String)</option>
+		<option value="email">Email (String)</option>
+  		<option value="streetNumber">Street Number (Integer)</option>
+  		<option value="streetName">Street Name (String)</option>
+  		<option value="city">City (String)</option>
+		<option value="dollarBalance">Balance in Dollars (Integer)</option>
+  		<option value="accountNumber">Account Number (Integer)</option>
+  		<option value="routingNumber">Routing Number (Integer)</option>
+	</select>
+	<br />
+	<textarea  placeholder="Change the Data to this" rows = "5"  cols = "40" name = "formData1" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<label for="formAttribute2">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute2" id="formAttribute2" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="ssn">Social Security Number (String)</option>
+  		<option value="fname">First Name (String)</option>
+  		<option value="lname">Last Name (String)</option>
+  		<option value="phoneNumber">Phone Number (String)</option>
+		<option value="email">Email (String)</option>
+  		<option value="streetNumber">Street Number (Integer)</option>
+  		<option value="streetName">Street Name (String)</option>
+  		<option value="city">City (String)</option>
+		<option value="dollarBalance">Balance in Dollars (Integer)</option>
+  		<option value="accountNumber">Account Number (Integer)</option>
+  		<option value="routingNumber">Routing Number (Integer)</option>
+	</select>
+	</select>
+	<br />
+	<textarea  placeholder="Data to be changed" rows = "5"  cols = "40" name = "formData2" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+
+	<!-- DELETING EXCHANGEACCOUNT -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">ExchangeAccount Delete</p> <br />
+  	<input type="radio" id="ExchangeAccount" name="formTable" value="ExchangeAccount" style="width: 50px;">
+  	<label for="ExchangeAccount">ExchangeAccount</label><br>
+	<br />
+	<input type="radio" id="Delete" name="formMethod" value="Delete" style="width: 50px;">
+  	<label for="Delete">Delete</label><br />
+	<br />
+	<label for="formAttribute1">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute1" id="formAttribute1" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="ssn">Social Security Number (String)</option>
+  		<option value="fname">First Name (String)</option>
+  		<option value="lname">Last Name (String)</option>
+  		<option value="phoneNumber">Phone Number (String)</option>
+		<option value="email">Email (String)</option>
+  		<option value="streetNumber">Street Number (Integer)</option>
+  		<option value="streetName">Street Name (String)</option>
+  		<option value="city">City (String)</option>
+		<option value="dollarBalance">Balance in Dollars (Integer)</option>
+  		<option value="accountNumber">Account Number (Integer)</option>
+  		<option value="routingNumber">Routing Number (Integer)</option>
+	</select>
+	<br />
+	<textarea  placeholder="Data to be found to be deleted" rows = "5"  cols = "40" name = "formData1" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+	</div>
+	</div>
+	<br />
+
+
+	<div style="
+	display: flex;
+	margin: 25px 0px;">
+	<div style="
+	border-radius: 10px;
+  	background-color: #d4a373;
+	margin-top: 10px;
+	margin-left: 30px;
+  	padding: 10px 20px;
+  	text-align: left;
+  	text-decoration: none;
+  	display: inline-block flex;
+	width: 45%;
+	overflow: auto;
+    	margin: auto;
+  	font-size: 16px;
+	font-family: monospace;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+
+	<!-- TOKEN SECTION -->
+	<p3 style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">TOKEN TABLE: </p3>
+	<br />
+	<p style="color: #432818; padding: 5px 32px; text-align: center; display: inline-block; font-size: 15px; font-family: monospace;">Token:</p>
+	<p style="color: #432818; padding: 5px 32px; text-align: center; display: inline-block; font-size: 15px; font-family: monospace;">userTokenAddress, ownerSSN, numberOfToken</p> <br />
+	<p style="color: red; padding: 5px 32px; text-align: center; display: inline-block; font-size: 15px; font-family: monospace;">Pro Tip: When typing in string based values, wrap the string in single quotes: 'xxx' </p>
+
+	<!-- AGGREGATING TOKEN -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">Token Aggregate</p> <br />
+  	<input type="radio" id="Token" name="formTable" value="Token" style="width: 50px;">
+  	<label for="Token">Token</label><br>
+	<br />
+	<label for="formMethod">Choose an Aggregate function:</label>
+	<br />
+	<select name="formMethod" id="formMethod" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="Count">COUNT</option>
+  		<option value="Sum">SUM</option>
+		<option value="Average">AVERAGE</option>
+		<option value="Min">MIN</option>
+  		<option value="Max">MAX</option>
+	</select>
+	<br />
+	<label for="formAttribute1">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute1" id="formAttribute1" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="userTokenAddress">Token Address (String)</option>
+  		<option value="ownerSSN">Owner's Social Security Number (String)</option>
+		<option value="numberOfToken">Number of Tokens Owned (Integer)</option>
+	</select>
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+
+	<!-- INSERTING FOR TOKEN -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">Token Insert</p> <br />
+  	<input type="radio" id="Token" name="formTable" value="Token" style="width: 50px;">
+  	<label for="Token">Token</label><br>
+	<br />
+	<input type="radio" id="Insert" name="formMethod" value="Insert" style="width: 50px;">
+  	<label for="Insert">Insert</label><br />
+	<br />
+	<textarea  placeholder="Token Address (String)" rows = "5"  cols = "20" name = "formData1" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Owner's Social Security Number (String)" rows = "5"  cols = "20" name = "formData2" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Number of Tokens Owned (Integer)" rows = "5"  cols = "20" name = "formData3" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+	<br />
+
+	<!-- UPDATING TOKEN -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">Token Update</p> <br />
+  	<input type="radio" id="Token" name="formTable" value="Token" style="width: 50px;">
+  	<label for="Token">Token</label><br>
+	<br />
+	<input type="radio" id="Update" name="formMethod" value="Update" style="width: 50px;">
+  	<label for="Update">Update</label><br />
+	<br />
+	<label for="formAttribute1">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute1" id="formAttribute1" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="userTokenAddress">Token Address (String)</option>
+  		<option value="ownerSSN">Owner's Social Security Number (String)</option>
+		<option value="numberOfToken">Number of Tokens Owned (Integer)</option>
+	</select>
+	<br />
+	<textarea  placeholder="Change the Data to this" rows = "5"  cols = "40" name = "formData1" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<label for="formAttribute2">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute2" id="formAttribute2" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="userTokenAddress">Token Address (String)</option>
+  		<option value="ownerSSN">Owner's Social Security Number (String)</option>
+		<option value="numberOfToken">Number of Tokens Owned (Integer)</option>
+	</select>
+	<br />
+	<textarea  placeholder="Data to be changed" rows = "5"  cols = "40" name = "formData2" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+
+	<!-- DELETING TOKEN -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">Token Delete</p> <br />
+  	<input type="radio" id="Token" name="formTable" value="Token" style="width: 50px;">
+  	<label for="Token">Token</label><br>
+	<br />
+	<input type="radio" id="Delete" name="formMethod" value="Delete" style="width: 50px;">
+  	<label for="Delete">Delete</label><br />
+	<br />
+	<label for="formAttribute1">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute1" id="formAttribute1" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="userTokenAddress">Token Address (String)</option>
+  		<option value="ownerSSN">Owner's Social Security Number (String)</option>
+		<option value="numberOfToken">Number of Tokens Owned (Integer)</option>
+	</select>
+	<br />
+	<textarea  placeholder="Data to be found to be deleted" rows = "5"  cols = "40" name = "formData1" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+	</div>
+	<br />
+
+
+	<div style="
+	border-radius: 10px;
+  	background-color: #d4a373;
+	margin-top: 10px;
+	margin-left: 30px;
+  	padding: 10px 20px;
+  	text-align: left;
+  	text-decoration: none;
+  	display: inline-block flex;
+	width: 45%;
+	overflow: auto;
+    	margin: auto;
+  	font-size: 16px;
+	font-family: monospace;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+
+	<!-- EXCHANGE SECTION -->
+	<p3 style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">EXCHANGE TABLE: </p3>
+	<br />
+	<p style="color: #432818; padding: 5px 32px; text-align: center; display: inline-block; font-size: 15px; font-family: monospace;">Exchange:</p>
+	<p style="color: #432818; padding: 5px 32px; text-align: center; display: inline-block; font-size: 15px; font-family: monospace;">exchangeTokenAddress, tokenName, supplyOnExchange, priceOfToken</p> <br />
+	<p style="color: red; padding: 5px 32px; text-align: center; display: inline-block; font-size: 15px; font-family: monospace;">Pro Tip: When typing in string based values, wrap the string in single quotes: 'xxx' </p>
+
+	<!-- AGGREGATING EXCHANGE -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">Exchange Aggregate</p> <br />
+  	<input type="radio" id="Exchange" name="formTable" value="Exchange" style="width: 50px;">
+  	<label for="Exchange">Exchange</label><br>
+	<br />
+	<label for="formMethod">Choose an Aggregate function:</label>
+	<br />
+	<select name="formMethod" id="formMethod" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="Count">COUNT</option>
+  		<option value="Sum">SUM</option>
+		<option value="Average">AVERAGE</option>
+		<option value="Min">MIN</option>
+  		<option value="Max">MAX</option>
+	</select>
+	<br />
+	<label for="formAttribute1">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute1" id="formAttribute1" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="exchangeTokenAddress">Token Address (String)</option>
+  		<option value="tokenName">Token Name (String)</option>
+  		<option value="supplyOnExchange">Supply of Exchange (Integer)</option>
+  		<option value="priceOfToken">Price of Token (Float)</option>
+	</select>
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+
+	<!-- INSERTING FOR EXCHANGE -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">Exchange Insert</p> <br />
+  	<input type="radio" id="Exchange" name="formTable" value="Exchange" style="width: 50px;">
+  	<label for="Exchange">Exchange</label><br>
+	<br />
+	<input type="radio" id="Insert" name="formMethod" value="Insert" style="width: 50px;">
+  	<label for="Insert">Insert</label><br />
+	<br />
+	<textarea  placeholder="Token Address (String)" rows = "5"  cols = "20" name = "formData1" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Token Name (String)" rows = "5"  cols = "20" name = "formData2" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Supply on Exchange (Integer)" rows = "5"  cols = "20" name = "formData3" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Price (Float)" rows = "5"  cols = "20" name = "formData4" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+	<br />
+
+	<!-- UPDATING EXCHANGE -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">Exchange Update</p> <br />
+  	<input type="radio" id="Exchange" name="formTable" value="Exchange" style="width: 50px;">
+  	<label for="Exchange">Exchange</label><br>
+	<br />
+	<input type="radio" id="Update" name="formMethod" value="Update" style="width: 50px;">
+  	<label for="Update">Update</label><br />
+	<br />
+	<label for="formAttribute1">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute1" id="formAttribute1" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="exchangeTokenAddress">Token Address (String)</option>
+  		<option value="tokenName">Token Name (String)</option>
+  		<option value="supplyOnExchange">Supply of Exchange (Integer)</option>
+  		<option value="priceOfToken">Price of Token (Float)</option>
+	</select>
+	<br />
+	<textarea  placeholder="Change the Data to this" rows = "5"  cols = "40" name = "formData1" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<label for="formAttribute2">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute2" id="formAttribute2" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="exchangeTokenAddress">Token Address (String)</option>
+  		<option value="tokenName">Token Name (String)</option>
+  		<option value="supplyOnExchange">Supply of Exchange (Integer)</option>
+  		<option value="priceOfToken">Price of Token (Float)</option>
+	</select>
+	<br />
+	<textarea  placeholder="Data to be changed" rows = "5"  cols = "40" name = "formData2" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+
+	<!-- DELETING EXCHANGE -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">Exchange Delete</p> <br />
+  	<input type="radio" id="Exchange" name="formTable" value="Exchange" style="width: 50px;">
+  	<label for="Exchange">Exchange</label><br>
+	<br />
+	<input type="radio" id="Delete" name="formMethod" value="Delete" style="width: 50px;">
+  	<label for="Delete">Delete</label><br />
+	<br />
+	<label for="formAttribute1">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute1" id="formAttribute1" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="exchangeTokenAddress">Token Address (String)</option>
+  		<option value="tokenName">Token Name (String)</option>
+  		<option value="supplyOnExchange">Supply of Exchange (Integer)</option>
+  		<option value="priceOfToken">Price of Token (Float)</option>
+	</select>
+	<br />
+	<textarea  placeholder="Data to be found to be deleted" rows = "5"  cols = "40" name = "formData1" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+	</div>
+	</div>
+	<br />
+
+	
+	<div style="
+	display: flex;
+	margin: 25px 0px;">
+	<div style="
+	border-radius: 10px;
+  	background-color: #d4a373;
+	margin-top: 10px;
+	margin-left: 30px;
+  	padding: 10px 20px;
+  	text-align: left;
+  	text-decoration: none;
+  	display: inline-block flex;
+	width: 45%;
+	overflow: auto;
+    	margin: auto;
+  	font-size: 16px;
+	font-family: monospace;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+
+	<!-- BUYCRYPTO SECTION -->
+	<p3 style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">BUY CRYPTO TABLE: </p3>
+	<br />
+	<p style="color: #432818; padding: 5px 32px; text-align: center; display: inline-block; font-size: 15px; font-family: monospace;">BuyCrypto:</p>
+	<p style="color: #432818; padding: 5px 32px; text-align: center; display: inline-block; font-size: 15px; font-family: monospace;">ssn, ownerSSN, userTokenAddress, exchangeTokenAddress, orderID, DateOfTransaction, amountBought</p> <br />
+	<p style="color: red; padding: 5px 32px; text-align: center; display: inline-block; font-size: 15px; font-family: monospace;">Pro Tip: When typing in string based values, wrap the string in single quotes: 'xxx' </p>
+
+	<!-- AGGREGATING BUYCRYPTO -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">BuyCrypto Aggregate</p> <br />
+  	<input type="radio" id="BuyCrypto" name="formTable" value="BuyCrypto" style="width: 50px;">
+  	<label for="BuyCrypto">BuyCrypto</label><br>
+	<br />
+	<label for="formMethod">Choose an Aggregate function:</label>
+	<br />
+	<select name="formMethod" id="formMethod" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="Count">COUNT</option>
+  		<option value="Sum">SUM</option>
+		<option value="Average">AVERAGE</option>
+		<option value="Min">MIN</option>
+  		<option value="Max">MAX</option>
+	</select>
+	<br />
+	<label for="formAttribute1">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute1" id="formAttribute1" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="ssn">Social Security Number (String)</option>
+  		<option value="ownerSSN">Owner's Social Security Number (String)</option>
+		<option value="userTokenAddress">Owner's Token Address (String)</option>
+		<option value="exchangeTokenAddress">Exchange Token Address (String)</option>
+  		<option value="orderID">Order ID (String)</option>
+		<option value="DateOfTransaction">Date of Transaction (DateTime)</option>
+		<option value="amountBought">Amount Bought (Integer)</option>
+	</select>
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+
+	<!-- INSERTING FOR BUYCRYPTO -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">BuyCrypto Insert</p> <br />
+  	<input type="radio" id="BuyCrypto" name="formTable" value="BuyCrypto" style="width: 50px;">
+  	<label for="BuyCrypto">BuyCrypto</label><br>
+	<br />
+	<input type="radio" id="Insert" name="formMethod" value="Insert" style="width: 50px;">
+  	<label for="Insert">Insert</label><br />
+	<br />
+	<textarea  placeholder="Social Security Number (String)" rows = "5"  cols = "20" name = "formData1" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Owner's Social Security Number (String)" rows = "5"  cols = "20" name = "formData2" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Owner's Token Address (String)" rows = "5"  cols = "20" name = "formData3" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Exchange Token Address (String)" rows = "5"  cols = "20" name = "formData4" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Order ID (String)" rows = "5"  cols = "20" name = "formData5" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Date Of Transaction (DateTime)" rows = "5"  cols = "20" name = "formData6" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Amount Bought (Integer)" rows = "5"  cols = "20" name = "formData7" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+	<br />
+
+	<!-- UPDATING BUYCRYPTO -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">BuyCrypto Update</p> <br />
+  	<input type="radio" id="BuyCrypto" name="formTable" value="BuyCrypto" style="width: 50px;">
+  	<label for="BuyCrypto">BuyCrypto</label><br>
+	<br />
+	<input type="radio" id="Update" name="formMethod" value="Update" style="width: 50px;">
+  	<label for="Update">Update</label><br />
+	<br />
+	<label for="formAttribute1">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute1" id="formAttribute1" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="ssn">Social Security Number (String)</option>
+  		<option value="ownerSSN">Owner's Social Security Number (String)</option>
+		<option value="userTokenAddress">Owner's Token Address (String)</option>
+		<option value="exchangeTokenAddress">Exchange Token Address (String)</option>
+  		<option value="orderID">Order ID (String)</option>
+		<option value="DateOfTransaction">Date of Transaction (DateTime)</option>
+		<option value="amountBought">Amount Bought (Integer)</option>
+	</select>
+	<br />
+	<textarea  placeholder="Change the Data to this" rows = "5"  cols = "40" name = "formData1" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<label for="formAttribute2">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute2" id="formAttribute2" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="ssn">Social Security Number (String)</option>
+  		<option value="ownerSSN">Owner's Social Security Number (String)</option>
+		<option value="userTokenAddress">Owner's Token Address (String)</option>
+		<option value="exchangeTokenAddress">Exchange Token Address (String)</option>
+  		<option value="orderID">Order ID (String)</option>
+		<option value="DateOfTransaction">Date of Transaction (DateTime)</option>
+		<option value="amountBought">Amount Bought (Integer)</option>
+	</select>
+	<br />
+	<textarea  placeholder="Data to be changed" rows = "5"  cols = "40" name = "formData2" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+	<br />
+
+	<!-- DELETING BUYCRYPTO -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">BuyCrypto Delete</p> <br />
+  	<input type="radio" id="BuyCrypto" name="formTable" value="BuyCrypto" style="width: 50px;">
+  	<label for="BuyCrypto">BuyCrypto</label><br>
+	<br />
+	<input type="radio" id="Delete" name="formMethod" value="Delete" style="width: 50px;">
+  	<label for="Delete">Delete</label><br />
+	<br />
+	<label for="formAttribute1">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute1" id="formAttribute1" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="ssn">Social Security Number (String)</option>
+  		<option value="ownerSSN">Owner's Social Security Number (String)</option>
+		<option value="userTokenAddress">Owner's Token Address (String)</option>
+		<option value="exchangeTokenAddress">Exchange Token Address (String)</option>
+  		<option value="orderID">Order ID (String)</option>
+		<option value="DateOfTransaction">Date of Transaction (DateTime)</option>
+		<option value="amountBought">Amount Bought (Integer)</option>
+	</select>
+	<br />
+	<textarea  placeholder="Data to be found to be deleted" rows = "5"  cols = "40" name = "formData1" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+	</div>
+	<br />
+
+
+	<div style="
+	border-radius: 10px;
+  	background-color: #d4a373;
+	margin-top: 10px;
+	margin-left: 30px;
+  	padding: 10px 20px;
+  	text-align: left;
+  	text-decoration: none;
+  	display: inline-block flex;
+	width: 45%;
+	overflow: auto;
+    	margin: auto;
+  	font-size: 16px;
+	font-family: monospace;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+
+	<!-- SELLCRYPTO SECTION -->
+	<p3 style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">SELL CRYPTO TABLE: </p3>
+	<br />
+	<p style="color: #432818; padding: 5px 32px; text-align: center; display: inline-block; font-size: 15px; font-family: monospace;">SellCrypto:</p>
+	<p style="color: #432818; padding: 5px 32px; text-align: center; display: inline-block; font-size: 15px; font-family: monospace;">ssn, ownerSSN, userTokenAddress, exchangeTokenAddress, orderID, DateOfTransaction, amountSold</p> <br />
+	<p style="color: red; padding: 5px 32px; text-align: center; display: inline-block; font-size: 15px; font-family: monospace;">Pro Tip: When typing in string based values, wrap the string in single quotes: 'xxx' </p>
+
+	<!-- AGGREGATING SELLCRYPTO -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">SellCrypto Aggregate</p> <br />
+  	<input type="radio" id="SellCrypto" name="formTable" value="SellCrypto" style="width: 50px;">
+  	<label for="SellCrypto">SellCrypto</label><br>
+	<br />
+	<label for="formMethod">Choose an Aggregate function:</label>
+	<br />
+	<select name="formMethod" id="formMethod" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="Count">COUNT</option>
+  		<option value="Sum">SUM</option>
+		<option value="Average">AVERAGE</option>
+		<option value="Min">MIN</option>
+  		<option value="Max">MAX</option>
+	</select>
+	<br />
+	<label for="formAttribute1">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute1" id="formAttribute1" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="ssn">Social Security Number (String)</option>
+  		<option value="ownerSSN">Owner's Social Security Number (String)</option>
+		<option value="userTokenAddress">Owner's Token Address (String)</option>
+		<option value="exchangeTokenAddress">Exchange Token Address (String)</option>
+  		<option value="orderID">Order ID (String)</option>
+		<option value="DateOfTransaction">Date of Transaction (DateTime)</option>
+		<option value="amountSold">Amount Sold (Integer)</option>
+	</select>
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+
+	<!-- INSERTING FOR SELLCRYPTO -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">SellCrypto Insert</p> <br />
+  	<input type="radio" id="SellCrypto" name="formTable" value="SellCrypto" style="width: 50px;">
+  	<label for="SellCrypto">SellCrypto</label><br>
+	<br />
+	<input type="radio" id="Insert" name="formMethod" value="Insert" style="width: 50px;">
+  	<label for="Insert">Insert</label><br />
+	<br />
+	<textarea  placeholder="Social Security Number (String)" rows = "5"  cols = "20" name = "formData1" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Owner's Social Security Number (String)" rows = "5"  cols = "20" name = "formData2" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Owner's Token Address(String)" rows = "5"  cols = "20" name = "formData3" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Exchange Token Address (String)" rows = "5"  cols = "20" name = "formData4" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Order ID (String)" rows = "5"  cols = "20" name = "formData5" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Date Of Transaction (DateTime)" rows = "5"  cols = "20" name = "formData6" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<textarea  placeholder="Amount Sold (Integer)" rows = "5"  cols = "20" name = "formData7" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+	<br />
+
+	<!-- UPDATING SELLCRYPTO -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">SellCrypto Update</p> <br />
+  	<input type="radio" id="SellCrypto" name="formTable" value="SellCrypto" style="width: 50px;">
+  	<label for="SellCrypto">SellCrypto</label><br>
+	<br />
+	<input type="radio" id="Update" name="formMethod" value="Update" style="width: 50px;">
+  	<label for="Update">Update</label><br />
+	<br />
+	<label for="formAttribute1">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute1" id="formAttribute1" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="ssn">Social Security Number (String)</option>
+  		<option value="ownerSSN">Owner's Social Security Number (String)</option>
+		<option value="userTokenAddress">Owner's Token Address (String)</option>
+		<option value="exchangeTokenAddress">Exchange Token Address (String)</option>
+  		<option value="orderID">Order ID (String)</option>
+		<option value="DateOfTransaction">Date of Transaction (DateTime)</option>
+		<option value="amountSold">Amount Sold (Integer)</option>
+	</select>
+	<br />
+	<textarea  placeholder="Change the Data to this" rows = "5"  cols = "40" name = "formData1" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<label for="formAttribute2">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute2" id="formAttribute2" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="ssn">Social Security Number (String)</option>
+  		<option value="ownerSSN">Owner's Social Security Number (String)</option>
+		<option value="userTokenAddress">Owner's Token Address (String)</option>
+		<option value="exchangeTokenAddress">Exchange Token Address (String)</option>
+  		<option value="orderID">Order ID (String)</option>
+		<option value="DateOfTransaction">Date of Transaction (DateTime)</option>
+		<option value="amountSold">Amount Sold (Integer)</option>
+	</select>
+	<br />
+	<textarea  placeholder="Data to be changed" rows = "5"  cols = "40" name = "formData2" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+	<br />
+
+	<!-- DELETING SELLCRYPTO -->
+	<form style="margin-left: 100 px;" action  = "http://css1.seattleu.edu/~nguyenclayto/test/db.php" method = "post">
+	<p style="color: #432818; padding: 15px 32px; text-align: center; display: inline-block; font-size: 20px; font-family: monospace;">SellCrypto Delete</p> <br />
+  	<input type="radio" id="SellCrypto" name="formTable" value="SellCrypto" style="width: 50px;">
+  	<label for="SellCrypto">SellCrypto</label><br>
+	<br />
+	<input type="radio" id="Delete" name="formMethod" value="Delete" style="width: 50px;">
+  	<label for="Delete">Delete</label><br />
+	<br />
+	<label for="formAttribute1">Choose an attribute:</label>
+	<br />
+	<select name="formAttribute1" id="formAttribute1" style="background-color: #606c38; color: white; border-radius: 8px; padding: 10px; margin: 10px;">
+  		<option value="ssn">Social Security Number (String)</option>
+  		<option value="ownerSSN">Owner's Social Security Number (String)</option>
+		<option value="userTokenAddress">Owner's Token Address (String)</option>
+		<option value="exchangeTokenAddress">Exchange Token Address (String)</option>
+  		<option value="orderID">Order ID (String)</option>
+		<option value="DateOfTransaction">Date of Transaction (DateTime)</option>
+		<option value="amountSold">Amount Sold (Integer)</option>
+	</select>
+	<br />
+	<textarea  placeholder="Data to be found to be deleted" rows = "5"  cols = "40" name = "formData1" style="width: 200px; height: 80px; border: 3px solid #cccccc; padding: 5px; font-family: monospace; background-position: bottom right; background-repeat: no-repeat;"></textarea>
+	<br />
+	<input name="formSubmit" type="submit" style="background-color: #7f5539; border: none; border-radius: 10px; color: white; margin-top: 10px; margin-left: 30px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: monospace;">
+	</form>
+	</div>
+	</div>
+	<br />
+	<br />
+
+	
+</form>
+</p>
+</body>
+</html>
