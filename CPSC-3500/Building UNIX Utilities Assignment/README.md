@@ -32,8 +32,3 @@ wunzip
 - returns 0 if correctly executed, returns 1 in all error cases
 - user prompted if no files specified
 
-
-Diff command does not work for wzip and wunzip when using file given by instructor
-when using diff on a unzipped zip file, says the binary files differ
-however, when a file has already been zipped and unzipped, when applying the same 
-logic to zip and unzip that already zipped and unzipped file, the Diff command works
