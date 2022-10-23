@@ -1,0 +1,31 @@
+**Clayton Nguyen**
+
+**createBalancedBST**
+RECURRANCE RELATION
+T(N) = 2T(N/2) + N
+O-NOTATION
+O(N) = N LOG N
+
+**zigzagLevelTraversal**
+RECURRANCE RELATION
+T(N) = T(N - 1)
+O-NOTATION
+O(N) = N
+
+**gap**
+RECURRANCE RELATION
+T(N) = 2T(N/2)  
+O-NOTAION
+O(N) = LOG N
+
+**pathSum**
+RECURRANCE RELATION
+T(N) = 2T(N/2)
+O-NOTATION
+O(N) = LOG N
+
+**kthLargest**
+RECURRANCE RELATION
+T(N) = T(N/2)
+O-NOTATION
+O(N) = LOG N

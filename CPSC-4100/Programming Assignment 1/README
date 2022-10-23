@@ -1,0 +1,16 @@
+Clayton Nguyen
+
+#1 Recurrance Relation:
+T(N) = 2T(N/2) + N
+O(N) = N LOG (N)
+
+
+#2 Recurrance Relation:
+T(N) = 2T(N/2) + N
+O(N) = N LOG (N)
+
+
+#3 Recurrance Relation:
+T(N) = 2(2T(N/2) + N) + N
+     = 4T(N/2) + 3N
+O(N) = N ^ (LOG(base2)(4))
