@@ -1,5 +1,7 @@
 # Seattle University CS Courses I have taken and relevant CS assignments
 
+** Disclaimer - Course work is mainly done in C++, C#, python, and F#. Only worked w/ Jupyer Notebook/Python for one course with lots of code for the labs, therefore the repo' langauage detection is so high for Jupyter Notebook.
+
 ### Course Number - Description
 
 ### CPSC 1420 Programming and Prob Solving 1 - 
